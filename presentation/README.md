@@ -20,7 +20,7 @@
 
 (adapt for `vortrag` version accordingly: `npm run vortrag` and `npm run pdf-vortrag`)
 
-On Arch Linux the `decktape` command requires the CLI option `--chrome-arg=--no-sandbox` (for details see "Errors - No usable sandbox!" section in https://github.com/astefanutti/decktape)
+On Arch Linux the `decktape` command requires the CLI option `--chrome-arg=--no-sandbox` (for details see "Errors - No usable sandbox!" section in [this issue](https://github.com/astefanutti/decktape)
 
 # Reveal-md basics
 
