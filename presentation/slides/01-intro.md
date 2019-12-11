@@ -35,19 +35,11 @@ TODO add image
 
 ---
 
-We will be talking about 
+## Agenda
 
-- **unit tests** and 
-- **integration tests**
-
----
-
-## What is a unit test?
-
-### What is a "unit"?
-
-TODO
-
----
-
-## What is an integration test?
+- purpose of testing
+- basics of testing frameworks
+- assertion libraries
+- the difference between unit & integration test
+- integration testing & mocking
+- introduction to TDD

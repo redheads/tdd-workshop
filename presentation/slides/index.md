@@ -31,13 +31,13 @@ public void Add_1_and_1_returns_2()
 ## C# Testing frameworks
 
 - MSTest
-  - the "Internet Explorer" of testing frameworks
+  - the "IE" of testing frameworks
 - NUnit
   - port of JUnit
   - very stable & actively maintained
 - xUnit
   - successor of NUnit
-  - modern & very modular
+  - modern, stable & very modular
   - Microsoft uses xUnit
 
 ---
@@ -46,19 +46,15 @@ public void Add_1_and_1_returns_2()
 
 - `TestFixture` attribute on test class
 - `Test` attribute on method
-- `SetUp`, `TearDown`, `SetUpFixture`, `TearDownFixture`
-- parameterized test
-  - [https://github.com/nunit/docs/wiki/Parameterized-Tests](https://github.com/nunit/docs/wiki/Parameterized-Tests)
 
----
-
-## Optional: xUnit basics
-
-- no attribute on test class needed
-- `Fact` attribute on method
-- no setup/teardown: use ctor and `Dispose` instead
-- parameterized test
-  - [parameterized test with xUnit](https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/)
+```csharp
+[TestFixture] // <--
+public class CustomerRepositoryTests
+{
+    [Test]    // <--
+    public void GetById_bla(){}
+}
+```
 
 ---
 
@@ -152,12 +148,19 @@ Assert.That(result, Is.EqualTo("foox"));
 
 - always name test so that error message is clear
 - readability tip: use snake case for tests
-  - examples:
-    - `Adding_1_and_1_returns_2`
-    - `Creating_customer_with_missing_name_throws`
+
+```text
+Adding_1_and_1_returns_2
+Creating_customer_with_missing_name_throws
+```
+
 - use inner classes for methods needing multiple tests
-  - example:
-    - `CustomerProvider` with method `GetCustomerById`:
+
+```text
+CustomerProvider with method GetCustomerById
+```
+
+live coding
 
 ----
 
@@ -170,18 +173,10 @@ public class CustomerProviderTests
     private class GetById
     {
         [Test]
-        public void With_valid_id()
-        {
-            // ...
-        }
+        public void With_valid_id() {}
 
-        [TestCase(null)]
-        [TestCase(0)]
-        [TestCase(-1)]
-        public void With_invalid_id_returns_null(int? customerId)
-        {
-            // ...
-        }
+        [Test]
+        public void With_invalid_id_returns_null() {}
     }
 ```
 
@@ -189,8 +184,9 @@ Error message:
 
 ```text
 CustomerProviderTests
-    -> With_valid_id
-    -> With_invalid_id_returns_null
+    -> GetById
+        -> With_valid_id
+        -> With_invalid_id_returns_null
 ```
 
 ---
@@ -202,12 +198,12 @@ CustomerProviderTests
 
 Goal: improve readability and error messages
 
-```chsarp
+```csharp
 // FluentAssertions
 "foo".Should().Be("foox");
 ```
 
-Pros: works with all test framework
+Bonus: works with all test framework
 
 ---
 
@@ -219,7 +215,31 @@ Pros: works with all test framework
 
 ### Error message: Reason
 
-TODO
+Most methods have an optional "reason" string
+
+```csharp
+[Test]
+// wrong implementation
+private static IEnumerable<int> GetEvenNumbers(IEnumerable<int> input) 
+    => input.Where(x => x % 2 != 0).ToList();
+}
+
+public void Parse_even_numbers()
+{
+    var input = new List<int>{0, 1, 2, 3, 4};
+    var result = GetEvenNumbers(input);
+    result.Should()
+        .BeEquivalentTo(
+            new List<int>{0, 2, 4}, 
+            "odd numbers are wrong");
+}
+```
+
+```text
+Expected result to be a collection with 3 item(s) 
+because odd numbers are wrong, but {1, 3}
+contains 1 item(s) less than {0, 2, 4}.
+```
 
 ----
 
