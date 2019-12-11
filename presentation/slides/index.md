@@ -381,12 +381,16 @@ private class CustomerTestData : IEnumerable
 
 ## What should we test?
 
-- focus on user stories, not on technical details
-- often evokes better design!
+---
+
+## What should we test?
+
+- **focus on user stories**, not on technical details
+- **often evokes better design!**
 - when testing technical details:
   - focus on happy path
   - bug report: write a test demonstrating the bug; then fix the bug
-  - make tests maintainable
+  - keep techn. tests maintainable!
 
 ---
 
