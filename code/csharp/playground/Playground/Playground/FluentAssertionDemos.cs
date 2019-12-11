@@ -52,5 +52,56 @@ namespace Playground
 
         private static void Throws() 
             => throw new Exception("Ups");
+
+        [TestCase(-1, Bar.Undefined)]
+        [TestCase(0, Bar.All)]
+        [TestCase(1, Bar.Beer)]
+        [TestCase(2, Bar.Whiskey)]
+        [TestCase(3, Bar.Water)]
+        [TestCase(4, Bar.Undefined)]
+        [TestCase(99, Bar.Undefined)]
+        public void MapIntToBar(int input, Bar expected)
+        {
+            MapIntToBar(input).Should().Be(expected);
+        }
+
+        private static Bar MapIntToBar(int foo)
+        {
+            if (foo < 0)
+            {
+                return Bar.Undefined;
+            }
+
+            if (foo == 0)
+            {
+                return Bar.All;
+            }
+
+            if (foo == 1)
+            {
+                return Bar.Beer;
+            }
+
+            if (foo == 2)
+            {
+                return Bar.Whiskey;
+            }
+            
+            if (foo == 3)
+            {
+                return Bar.Water;
+            }
+
+            return Bar.Undefined;
+        }
+
+        public enum Bar
+        {
+            Undefined,
+            All,
+            Water,
+            Beer,
+            Whiskey
+        }
     }
 }

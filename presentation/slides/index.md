@@ -319,9 +319,30 @@ result.Should().Be(expectedResult);
 
 ---
 
+- Test code should be treated with the same care as production code
+
+---
+
+## Arrange: Parameterized tests
+
+```csharp
+[TestCase(-1, Bar.Undefined)]
+[TestCase(0, Bar.All)]
+[TestCase(1, Bar.Beer)]
+[TestCase(2, Bar.Whiskey)]
+[TestCase(3, Bar.Water)]
+[TestCase(4, Bar.Undefined)]
+[TestCase(99, Bar.Undefined)]
+public void MapIntToBar(int input, Bar expected)
+{
+    MapIntToBar(input).Should().Be(expected);
+}
+```
+
+---
+
 ## Run code before / after each test
 
-- Test code should be treated with the same care as production code
 - Useful when code repeats itself
 
 ---
@@ -330,12 +351,6 @@ result.Should().Be(expectedResult);
 
 - Useful for integration tests
   - example: DB setup/teardown
-
----
-
-## Parameterized tests
-
-TODO
 
 ---
 
