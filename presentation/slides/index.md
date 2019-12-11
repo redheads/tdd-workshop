@@ -136,6 +136,57 @@ Assert.That(result, Is.EqualTo("foox"));
 
 ---
 
+## Why are error message important?
+
+- local machine: Quick feedback
+  - continous testing
+  - just read the error message and know what's wrong
+- CI server
+  - Fail email: why?
+
+- Test naming & error message should tell a story
+
+---
+
+## Test naming conventions
+
+- always name test so that error message is clear
+- readability tip: use snake case for tests
+  - examples:
+    - `Adding_1_and_1_returns_2`
+    - `Creating_customer_with_missing_name_throws`
+- use inner classes for methods needing multiple tests
+  - example:
+    - `CustomerProvider` with method `GetCustomerById`:
+
+----
+
+Example
+
+```csharp
+[TestFixture]
+public class CustomerProviderTests
+{
+    private class GetById
+    {
+        [Test]
+        public void With_valid_id()
+        {
+            // ...
+        }
+
+        [TestCase(null)]
+        [TestCase(0)]
+        [TestCase(-1)]
+        public void With_invalid_id_returns_null(int? customerId)
+        {
+            // ...
+        }
+    }
+```
+
+---
+
 ## Alternative assertion libraries
 
 - FluentAssertions: [https://fluentassertions.com/](https://fluentassertions.com/)
@@ -165,6 +216,12 @@ TODO
 ----
 
 ### Collections
+
+TODO
+
+----
+
+### Exceptions
 
 TODO
 
