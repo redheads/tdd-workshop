@@ -38,8 +38,9 @@ TODO add image
 ## Agenda
 
 - purpose of testing
-- basics of testing frameworks
+- testing frameworks basics
 - assertion libraries
-- the difference between unit & integration test
+- **we code!**
 - integration testing & mocking
+- **we code!**
 - introduction to TDD
