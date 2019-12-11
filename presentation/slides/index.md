@@ -323,7 +323,7 @@ result.Should().Be(expectedResult);
 
 ---
 
-## Arrange: Parameterized tests
+## Arrange: Parameterized tests (1/2)
 
 ```csharp
 [TestCase(-1, Bar.Undefined)]
@@ -336,6 +336,31 @@ result.Should().Be(expectedResult);
 public void MapIntToBar(int input, Bar expected)
 {
     MapIntToBar(input).Should().Be(expected);
+}
+```
+
+---
+
+## Arrange: Parameterized tests (2/2)
+
+- [https://github.com/nunit/docs/wiki/TestCaseSource-Attribute](https://github.com/nunit/docs/wiki/TestCaseSource-Attribute)
+
+```csharp
+[TestCaseSource(typeof(CustomerTestData))]
+public void CustomerIsValid(Customer customer, bool expected)
+{
+    customer.IsValid().Should().Be(expected);
+}
+
+private class CustomerTestData : IEnumerable
+{
+    public IEnumerator GetEnumerator()
+    {
+        yield return new object[] {
+            new Customer {FirstName = null, LastName = null}, false};
+        yield return new object[] {
+            new Customer {FirstName = "a", LastName = "b"}, true};
+    }
 }
 ```
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -103,5 +104,30 @@ namespace Playground
             Beer,
             Whiskey
         }
+
+        [TestCaseSource(typeof(CustomerTestData))]
+        public void CustomerIsValid(Customer customer, bool expected)
+        {
+            customer.IsValid().Should().Be(expected);
+        }
+
+        private class CustomerTestData : IEnumerable
+        {
+            public IEnumerator GetEnumerator()
+            {
+                yield return new object[] {new Customer {FirstName = null, LastName = null}, false};
+                yield return new object[] {new Customer {FirstName = "a", LastName = "b"}, true};
+            }
+        }
+    }
+
+    public class Customer
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public bool IsValid() =>
+            !string.IsNullOrWhiteSpace(FirstName)
+            && !string.IsNullOrWhiteSpace(LastName);
     }
 }
