@@ -65,6 +65,8 @@ We will be talking about
 
 ### What is a "unit"?
 
+TODO
+
 ---
 
 ## What is an integration test?
@@ -105,7 +107,7 @@ public void Add_1_and_1_returns_2()
 - `Test` attribute on method
 - `SetUp`, `TearDown`, `SetUpFixture`, `TearDownFixture`
 - parameterized test
-  - https://github.com/nunit/docs/wiki/Parameterized-Tests
+  - [https://github.com/nunit/docs/wiki/Parameterized-Tests](https://github.com/nunit/docs/wiki/Parameterized-Tests)
 
 ---
 
@@ -115,33 +117,29 @@ public void Add_1_and_1_returns_2()
 - `Fact` attribute on method
 - no setup/teardown: use ctor and `Dispose` instead
 - parameterized test
-  - https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/
+  - [parameterized test with xUnit](https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/)
 
 ---
 
 ## NUnit assertions
 
-https://github.com/nunit/docs/wiki/Assertions
+[https://github.com/nunit/docs/wiki/Assertions](https://github.com/nunit/docs/wiki/Assertions)
 
-- Classic model (deprecated!): https://github.com/nunit/docs/wiki/Classic-Model
-- Constraint model: https://github.com/nunit/docs/wiki/Constraint-Model
+- Classic model (deprecated!): [https://github.com/nunit/docs/wiki/Classic-Model](https://github.com/nunit/docs/wiki/Classic-Model)
+- Constraint model: [https://github.com/nunit/docs/wiki/Constraint-Model](https://github.com/nunit/docs/wiki/Constraint-Model)
 
 ---
 
 ## NUnit classic assertions
 
 ```csharp
-[Test]
-public void Classic_simple_string_comparison()
-{
-    var result = "foo";
-    
-    // (1)
-    Assert.IsTrue(result == "foox");
-    
-    // (2)
-    Assert.AreEqual(result, "foox");
-}
+var result = "foo";
+
+// (1)
+Assert.IsTrue(result == "foox");
+
+// (2)
+Assert.AreEqual(result, "foox");
 ```
 
 - Both assertions fail.
@@ -166,6 +164,82 @@ But was:  "foox"
 
 ---
 
+## Problem with all assertion equal tests
+
+```csharp
+Assert.AreEqual(result, "foox");
+```
+
+I can never remember the order of parameters, because each framework is different. 
+
+- some use `(actual, expected)`
+- others use `(expected, actual)`
+
+This makes reading the error message difficult.
+
+---
+
+## NUnit constraint model
+
+- always uses the `Assert.That(...)` syntax
+
+Example:
+
+```csharp
+var result = "foo";
+Assert.That(result, Is.EqualTo("foox"));
+```
+
+- readability improvement
+- sane error message
+
+---
+
+## Alternative assertion libraries
+
+- FluentAssertions: [https://fluentassertions.com/](https://fluentassertions.com/)
+- NFluent: [http://www.n-fluent.net/](http://www.n-fluent.net/) 
+
+Goal: improve readability and error messages
+
+```chsarp
+// FluentAssertions
+"foo".Should().Be("foox");
+```
+
+Pros: works with all test framework
+
+---
+
+## FluentAssertions
+
+[https://fluentassertions.com/](https://fluentassertions.com/)
+
+### Error message: Reason
+
+TODO
+
+### Collections
+
+TODO
+
+### EquivalentTo
+
+TODO
+
+---
+
+## Unit test anatonomy
+
+- Arrange, Act, Assert (AAA)
+- Given, When, Then
+
+```csharp
+// TODO
+```
+
+---
+
 ## Run code before / after each test
 
 ---
@@ -180,18 +254,14 @@ TODO
 
 ---
 
-## Unit test anatonomy
+## What should we test?
 
-- Arrange, Act, Assert (AAA)
-- Given, When, Then
-
-```csharp
-[Test]
-public void Add_1_and_1_returns_2()
-{
-    Assert.That(Add(1, 1), Is.EqualTo(2));
-}
-```
+- focus on user stories, not on technical details
+- often evokes better design!
+- when testing technical details:
+  - focus on happy path
+  - bug report: write a test demonstrating the bug; then fix the bug
+  - make tests maintainable
 
 ---
 
