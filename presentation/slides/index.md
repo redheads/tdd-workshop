@@ -14,65 +14,6 @@ FILE: 01-intro.md
 
 ---
 
-Oh, now you want content?
-
----
-
-## Why do we test?
-
-interaction!!
-
-pen & paper -> write sticky notes
-
-----
-
-- prevent regression bugs
-- improve quality / exposes edge cases
-- find bugs early
-- documentation
-- simplifies debugging
-- forces us to think about design (for example integration with other components)
-
----
-
-## Different kinds of tests
-
-- unit tests
-- integration tests
-- smoke tests
-- end-to-end tests
-- system tests
-- acceptance tests
-- ui tests
-- ...
-
----
-
-## Test pyramide
-
-TODO add image
-
----
-
-We will be talking about 
-
-- **unit tests** and 
-- **integration tests**
-
----
-
-## What is a unit test?
-
-### What is a "unit"?
-
-TODO
-
----
-
-## What is an integration test?
-
----
-
 ## Hello World unit test
 
 ```csharp
@@ -215,13 +156,19 @@ Pros: works with all test framework
 
 [https://fluentassertions.com/](https://fluentassertions.com/)
 
+----
+
 ### Error message: Reason
 
 TODO
 
+----
+
 ### Collections
 
 TODO
+
+----
 
 ### EquivalentTo
 
@@ -229,22 +176,45 @@ TODO
 
 ---
 
-## Unit test anatonomy
+## Test anatomy
 
 - Arrange, Act, Assert (AAA)
 - Given, When, Then
 
 ```csharp
-// TODO
+// Arrange
+var num1 = 1;
+var num2 = 1;
+var sut = new Calculator();
+var expectedResult = 2;
+
+// Act
+var result = sut.AddNumbers(num1, num2);
+
+// Assert
+result.Should().Be(expectedResult);
 ```
+
+- `Arrange` can be very long!
+  - redesign?
+- `Act` should only be 1 line!
+- `Assert` can be very long!
+  - write dedicated assertion?
+  - use `AssertionScope`
 
 ---
 
 ## Run code before / after each test
 
+- Test code should be treated with the same care as production code
+- Useful when code repeats itself
+
 ---
 
 ## Run code before / after each fixture
+
+- Useful for integration tests
+  - example: DB setup/teardown
 
 ---
 
