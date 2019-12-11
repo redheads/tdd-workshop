@@ -265,13 +265,27 @@ list.Should()
 
 ### Exceptions
 
-TODO
+```csharp
+private static void Throws() 
+    => throw new Exception("Ups");
+
+[Test]
+public void Exceptions_tests()
+{
+    Action action = () => Throws();
+    action.Should()
+        .Throw<Exception>()
+        .WithMessage("Ups");
+}
+```
 
 ----
 
 ### EquivalentTo
 
-TODO
+Shameless self plug:
+
+[http://draptik.github.io/blog/2016/05/09/testing-objects-have-same-properties/](http://draptik.github.io/blog/2016/05/09/testing-objects-have-same-properties/)
 
 ---
 
@@ -279,6 +293,8 @@ TODO
 
 - Arrange, Act, Assert (AAA)
 - Given, When, Then
+
+---
 
 ```csharp
 // Arrange

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -39,5 +40,17 @@ namespace Playground
                 .And.Contain("baz")
                 .And.NotContain("42");
         }
+
+        [Test]
+        public void Exceptions_tests()
+        {
+            Action action = () => Throws();
+            action.Should()
+                .Throw<Exception>()
+                .WithMessage("Ups");
+        }
+
+        private static void Throws() 
+            => throw new Exception("Ups");
     }
 }
