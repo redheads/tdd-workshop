@@ -185,6 +185,14 @@ public class CustomerProviderTests
     }
 ```
 
+Error message:
+
+```text
+CustomerProviderTests
+    -> With_valid_id
+    -> With_invalid_id_returns_null
+```
+
 ---
 
 ## Alternative assertion libraries
