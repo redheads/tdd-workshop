@@ -21,5 +21,23 @@ namespace Playground
         // wrong implementation
         private static IEnumerable<int> GetEvenNumbers(IEnumerable<int> input) 
             => input.Where(x => x % 2 != 0).ToList();
+
+        [Test]
+        public void Collections_tests()
+        {
+            var list = new List<string>
+            {
+                "foo",
+                "bar",
+                "baz"
+            };
+
+            list.Should()
+                .HaveCount(3)
+                .And.Contain("foo")
+                .And.Contain("bar")
+                .And.Contain("baz")
+                .And.NotContain("42");
+        }
     }
 }

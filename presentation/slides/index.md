@@ -245,7 +245,21 @@ contains 1 item(s) less than {0, 2, 4}.
 
 ### Collections
 
-TODO
+```csharp
+var list = new List<string>
+{
+    "foo",
+    "bar",
+    "baz"
+};
+
+list.Should()
+    .HaveCount(3)
+    .And.Contain("foo")
+    .And.Contain("bar")
+    .And.Contain("baz")
+    .And.NotContain("42");
+```
 
 ----
 
