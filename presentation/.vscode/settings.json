@@ -8,5 +8,6 @@
         "dodnedder",
         "dotnetdayfranken"
     ],
-    "cSpell.enabled": false
+    "cSpell.enabled": false,
+    "eslint.enable": false
 }
