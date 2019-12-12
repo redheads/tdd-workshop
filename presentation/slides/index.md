@@ -53,4 +53,15 @@ Let's use **testing** to **DRIVE** our **development**!
 
 ---
 
+starting with the Fizz-Buzz Kata
+
+---
+
+when we're done
+
+- outside-in
+- inside-out
+
+---
+
 FILE: 99-exit.md
