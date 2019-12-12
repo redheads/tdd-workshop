@@ -15,6 +15,9 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Playground" t="IncludeRecursive">
         <e p="AssertionDemos.cs" t="Include" />
+        <e p="Domain" t="Include">
+          <e p="Customer.cs" t="Include" />
+        </e>
         <e p="FluentAssertionDemos.cs" t="Include" />
         <e p="IntegrationDemos.cs" t="Include" />
         <e p="NamingConventions.cs" t="Include" />
