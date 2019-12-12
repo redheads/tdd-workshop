@@ -44,4 +44,3 @@ mailer.Received().Send();
   - focus on happy path
   - bug report: write a test demonstrating the bug; then fix the bug
   - keep techn. tests maintainable!
-

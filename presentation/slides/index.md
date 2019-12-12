@@ -37,6 +37,10 @@ FILE: 03-integration-testing.md
 
 ---
 
+Let's code!
+
+---
+
 **now** you know the **tooling**!
 
 ---
