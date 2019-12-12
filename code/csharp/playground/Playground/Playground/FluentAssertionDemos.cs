@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
+using Playground.Domain;
 
 namespace Playground
 {
@@ -119,15 +120,5 @@ namespace Playground
                 yield return new object[] {new Customer {FirstName = "a", LastName = "b"}, true};
             }
         }
-    }
-
-    public class Customer
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-        public bool IsValid() =>
-            !string.IsNullOrWhiteSpace(FirstName)
-            && !string.IsNullOrWhiteSpace(LastName);
     }
 }
