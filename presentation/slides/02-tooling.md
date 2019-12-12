@@ -144,8 +144,6 @@ Creating_customer_with_missing_name_throws
 CustomerProvider with method GetCustomerById
 ```
 
-live coding
-
 ----
 
 Example
@@ -187,7 +185,7 @@ Goal: improve readability and error messages
 "foo".Should().Be("foox");
 ```
 
-Bonus: works with all test framework
+Bonus: **works with all test frameworks**
 
 ---
 
@@ -202,12 +200,11 @@ Bonus: works with all test framework
 Most methods have an optional "reason" string
 
 ```csharp
-[Test]
 // wrong implementation
-private static IEnumerable<int> GetEvenNumbers(IEnumerable<int> input) 
+IEnumerable<int> GetEvenNumbers(IEnumerable<int> input) 
     => input.Where(x => x % 2 != 0).ToList();
-}
 
+[Test]
 public void Parse_even_numbers()
 {
     var input = new List<int>{0, 1, 2, 3, 4};
@@ -230,6 +227,7 @@ contains 1 item(s) less than {0, 2, 4}.
 ### Collections
 
 ```csharp
+// FluentAssertionDemos
 var list = new List<string>
 {
     "foo",
@@ -250,6 +248,7 @@ list.Should()
 ### Exceptions
 
 ```csharp
+// FluentAssertionDemos
 private static void Throws() 
     => throw new Exception("Ups");
 
@@ -310,6 +309,7 @@ result.Should().Be(expectedResult);
 ## Arrange: Parameterized tests (1/2)
 
 ```csharp
+// FluentAssertionDemos
 [TestCase(-1, Bar.Undefined)]
 [TestCase(0, Bar.All)]
 [TestCase(1, Bar.Beer)]
@@ -330,6 +330,7 @@ public void MapIntToBar(int input, Bar expected)
 - [https://github.com/nunit/docs/wiki/TestCaseSource-Attribute](https://github.com/nunit/docs/wiki/TestCaseSource-Attribute)
 
 ```csharp
+// FluentAssertionDemos
 [TestCaseSource(typeof(CustomerTestData))]
 public void CustomerIsValid(Customer customer, bool expected)
 {

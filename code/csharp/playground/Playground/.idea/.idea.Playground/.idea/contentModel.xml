@@ -16,6 +16,7 @@
       <e p="Playground" t="IncludeRecursive">
         <e p="AssertionDemos.cs" t="Include" />
         <e p="FluentAssertionDemos.cs" t="Include" />
+        <e p="IntegrationDemos.cs" t="Include" />
         <e p="NamingConventions.cs" t="Include" />
         <e p="Playground.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />
