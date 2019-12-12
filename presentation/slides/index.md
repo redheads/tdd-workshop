@@ -33,49 +33,19 @@ Let's code!
 
 ---
 
-## Integration testing
-
-- testing how different components interact
-- composing interactions
+FILE: 03-integration-testing.md
 
 ---
 
-## Integration testing
-
-- Always a good indicator for
-  - decoupling
-  - correct layer of abstraction
+**now** you know the **tooling**!
 
 ---
 
-```csharp
-// Arrange
-var mailer = Substitute.For<IMailer>();
-
-var validCustomer = new ValidCustomer();
-var sut = new RegistrationService(mailer);
-
-// Act
-sut.Register(validCustomer);
-
-// Assert
-mailer.Received().Send();
-```
+Let's use **testing** to **DRIVE** our **development**!
 
 ---
 
-## What should we test?
-
----
-
-## What should we test?
-
-- **focus on user stories**, not on technical details
-- **often evokes better design!**
-- when testing technical details:
-  - focus on happy path
-  - bug report: write a test demonstrating the bug; then fix the bug
-  - keep techn. tests maintainable!
+## Test-Driven Development (TDD)
 
 ---
 
