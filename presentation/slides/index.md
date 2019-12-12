@@ -38,6 +38,16 @@ Let's code!
 - testing how different components interact
 - composing interactions
 
+---
+
+## Integration testing
+
+- Always a good indicator for
+  - decoupling
+  - correct layer of abstraction
+
+---
+
 ```csharp
 // Arrange
 var mailer = Substitute.For<IMailer>();
