@@ -1,48 +1,49 @@
+using NSubstitute;
 using NUnit.Framework;
-using Playground.Domain;
 
 namespace Playground
 {
     [TestFixture]
     public class IntegrationDemos
     {
-        // TODO adding new customer returns the number of customers
-        // TODO adding new customer returns new id
-        // TODO adding new customer returns new customer with id
-    }
-
-    public class CustomerChanger
-    {
-        private readonly CustomerRepository _customerRepository;
-
-        public CustomerChanger()
+        [Test]
+        public void Registering_a_valid_new_customer_sends_a_confirmation_mail()
         {
-            _customerRepository = new CustomerRepository();
-        }
-
-        void Add(Customer customer){}
-    }
-
-    public class CustomerProvider
-    {
-        private readonly CustomerRepository _customerRepository;
-
-        public CustomerProvider()
-        {
-            _customerRepository = new CustomerRepository();
-        }
-
-        Customer GetById(int customerId)
-        {
-            return new Customer
-            {
-                Id = 1
-            };
+            // Arrange
+            var mailer = Substitute.For<IMailer>();
+            
+            var validCustomer = new ValidCustomer();
+            var sut = new RegistrationService(mailer);
+            
+            // Act
+            sut.Register(validCustomer);
+            
+            // Assert
+            mailer.Received().Send();
         }
     }
 
-    public class CustomerRepository
+    public interface IMailer
     {
-        
+        void Send();
+    }
+
+    public class RegistrationService
+    {
+        private readonly IMailer _mailer;
+
+        public RegistrationService(IMailer mailer)
+        {
+            _mailer = mailer;
+        }
+
+        public void Register(ValidCustomer validCustomer)
+        {
+            _mailer.Send();
+        }
+    }
+
+    public class ValidCustomer
+    {
     }
 }

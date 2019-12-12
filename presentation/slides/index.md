@@ -39,7 +39,17 @@ Let's code!
 - composing interactions
 
 ```csharp
+// Arrange
+var mailer = Substitute.For<IMailer>();
 
+var validCustomer = new ValidCustomer();
+var sut = new RegistrationService(mailer);
+
+// Act
+sut.Register(validCustomer);
+
+// Assert
+mailer.Received().Send();
 ```
 
 ---
