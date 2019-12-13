@@ -44,3 +44,22 @@ mailer.Received().Send();
   - focus on happy path
   - bug report: write a test demonstrating the bug; then fix the bug
   - keep techn. tests maintainable!
+
+---
+
+## Test Doubles
+
+- Mock (spy)
+  - emulate **outcoming** interactions
+- Stub (dummy, fake)
+  - emulate **incoming** interactions
+
+---
+
+![test-double](images/test-double.png)
+
+---
+
+## Test matrix
+
+![test-matrix](images/test-matrix.png)
