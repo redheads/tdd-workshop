@@ -34,6 +34,22 @@ FILE: 02-tooling.md
 
 ---
 
+let's code
+
+(One more thing... Mobbing)
+
+---
+
+FILE: mob-programming.md
+
+---
+
+let's code
+
+Gilded Rose Kata
+
+---
+
 ## What should we test?
 
 ---
@@ -54,10 +70,6 @@ FILE: 03-integration-testing.md
 ---
 
 FILE: 04-tdd.md
-
----
-
-Let's code!
 
 ---
 
