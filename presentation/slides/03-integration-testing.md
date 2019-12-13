@@ -13,26 +13,18 @@
 
 ---
 
-```csharp
-// Arrange
-var mailer = Substitute.For<IMailer>();
+## Test matrix
 
-var validCustomer = new ValidCustomer();
-
-// We inject an interface to the system-under-test!
-// Mocking frameworks can control the behaviour of the injected object!
-var sut = new RegistrationService(mailer);
-
-// Act
-sut.Register(validCustomer);
-
-// Assert
-mailer.Received().Send();
-```
+![test-matrix](images/test-matrix.png)
 
 ---
 
-## What should we test?
+## Test matrix - Code smell
+
+- "overcomplicated code" quadrant
+  - wrong layer of abstraction 
+  - missing encapsulation
+- solution: move logic to domain object
 
 ---
 
@@ -54,12 +46,44 @@ mailer.Received().Send();
 - Stub (dummy, fake)
   - emulate **incoming** interactions
 
+Many modern frameworks don't make this distinction.
+
 ---
 
 ![test-double](images/test-double.png)
 
 ---
 
-## Test matrix
+## C# Mocking frameworks
 
-![test-matrix](images/test-matrix.png)
+- [Moq](https://github.com/moq/moq4)
+  - can also mock classes without interfaces
+- [NSubstitute](https://nsubstitute.github.io/)
+  - nice API
+- [FakeItEasy](https://fakeiteasy.github.io/)
+  - nice API
+  
+---
+
+### NSubstitute
+
+```csharp
+// Arrange
+var mailer = Substitute.For<IMailer>(); // <--
+
+var validCustomer = new ValidCustomer();
+
+// We inject an interface to the system-under-test!
+// Mocking frameworks can control the behaviour of the injected object!
+var sut = new RegistrationService(mailer);
+
+// Act
+sut.Register(validCustomer);
+
+// Assert
+mailer.Received().Send(); // <--
+```
+
+---
+
+examples in code

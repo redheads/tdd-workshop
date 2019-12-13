@@ -39,6 +39,10 @@ Let's use **testing** to **DRIVE** our **development**!
 
 ---
 
+![tdd-cycle](images/TDD.png)
+
+---
+
 - no code without test
 - untested code should not go live
 - baby steps: only write code to make test pass
@@ -71,8 +75,10 @@ Fizz-Buzz Kata
 ## Schools of TDD
 
 - **Classical**
-  - aka Detroit, Chicago, inside-out: Kent Beck
+  - aka Detroit, Chicago, "inside-out", "fake it til you make it"
+  - K. Beck: Test-Driven Development By Example
 - **London** 
-  - aka moquist, outside-in: Freeman & Pryce
-- Munich
-- Hamburg
+  - aka moquist, "outside-in"
+  - Freeman & Pryce: Growing Object Oriented Software Guided by Tests
+- Munich: [David Voelkl](https://www.youtube.com/watch?v=n62HN2DHDEU)
+- Hamburg: [Ralph Westpfahl](https://ralfw.de/2019/07/hamburg-style-tdd/)
