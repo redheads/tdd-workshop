@@ -279,6 +279,17 @@ Shameless self plug:
 
 ---
 
+### Antipatterns
+
+- Avoid multiple AAA sections
+  - keep test small
+  - try to only test one thing
+- Avoid if statements
+- Avoid "Act" statement with more than 1 line
+- Avoid high coupling in setup methods
+  
+---
+
 ```csharp
 // Arrange
 var num1 = 1;
@@ -361,3 +372,30 @@ private class CustomerTestData : IEnumerable
 
 - Useful for integration tests
   - example: DB setup/teardown
+
+---
+
+## Test suites and other annotations
+
+- slow running tests
+  - nightly build
+
+---
+
+## Encapsulation
+
+- avoid testing private methods
+  - maybe refactor?
+- C# fallback: 
+  - make method `internal`
+  - `InternalsVisibleTo` in assembly
+
+---
+
+## Automation
+
+- Automation is a critical part of testing!
+- within IDE: continous test runner
+  - NCrunch
+  - R#
+- CI (i.e. Jenkins)

@@ -45,6 +45,18 @@ pen & paper -> write sticky notes
 
 ---
 
+![img](images/test-pyramid2.png)
+
+---
+
+![img](images/dynamics1.png)
+
+---
+
+![img](images/dynamics2.png)
+
+---
+
 ## Agenda
 
 - purpose of testing

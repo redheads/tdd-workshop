@@ -28,6 +28,10 @@
 
 ---
 
+![test-matrix2](images/test-matrix2.png)
+
+---
+
 ## What should we test?
 
 - **focus on user stories**, not on technical details
@@ -51,6 +55,22 @@ Many modern frameworks don't make this distinction.
 ---
 
 ![test-double](images/test-double.png)
+
+---
+
+## Manually creating Mocks
+
+- only useful for simple objects
+- time consuming
+
+---
+
+## Mocking frameworks
+
+- often require interface or virtual methods (C#)
+- focus on methods required in test
+- setup pre conditions
+- verify post conditions
 
 ---
 
