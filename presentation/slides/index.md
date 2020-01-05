@@ -13,7 +13,7 @@ revealOptions:
 # Testing
 
 <div style="position: absolute; top: 520px; right: -150px; color: #ccc; text-transform: none; text-align: right" class="my-shadow">
-</br><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;2019-12-13
+</br><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;2020-01-xx
 </div>
 
 <div style="position: absolute; top: 520px; left: -145px; color: #ccc; text-transform: none; text-align: right" class="my-shadow">
