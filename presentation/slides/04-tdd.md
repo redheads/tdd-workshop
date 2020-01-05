@@ -9,7 +9,7 @@ Let's use **testing** to **DRIVE** our **development**!
 ## Recap: Traditional approach
 
 - Design
-- Imlementation
+- Implementation
 - Test
 
 ---
@@ -49,7 +49,23 @@ Let's use **testing** to **DRIVE** our **development**!
 
 ---
 
-## green bar pattern 
+## red bar patterns
+
+Patterns decribing
+
+- when to write tests
+- where to write tests
+- when to stop writing test
+
+---
+
+TODO
+
+---
+
+## green bar patterns
+
+Patterns describing how to go from red to green
 
 - "fake it til you make it"
 - triangulation
