@@ -1,7 +1,9 @@
 const { readFileSync } = require('fs');
 const path = require('path');
 
-const LINE_SEPARATOR = '\r\n';
+// const LINE_SEPARATOR = '\r\n'; // <-- Windows default
+const LINE_SEPARATOR = '\n'; // <-- Linux default
+
 const FILE_REF_REGEX = /^FILE: (.+)$/;
 
 const isFileReference = (line) => FILE_REF_REGEX.test(line);

@@ -40,8 +40,26 @@ Customization options include:
 - reveal configs (i.e. plugins)
 - reveal themes
 
+# Splitting content into separate files
+
+...is done via the file `preproc.js`.
+
+IMPORTANT: Take care of line endings in markdown files, otherwise the mechanism won't work.
+
+For details see `preproc.js`:
+
+```javascript
+// const LINE_SEPARATOR = '\r\n'; // <-- Windows default
+const LINE_SEPARATOR = '\n'; // <-- Linux default
+
+const preprocess = async (markdown, options) =>
+    markdown
+        .split(LINE_SEPARATOR)
+//...
+```
+
 # Project structure
 
 - `reveal.html`: reveal-md format of the standard `index.html` used by reveal-js: include reveal-plugins here
 - `package.json`: includes scripts for starting presentation and creating pdf
-- `slides/index.md`: obvious...
+- `slides/index.md`: the main file: include other files here using `FILE: other-file.md` syntax
