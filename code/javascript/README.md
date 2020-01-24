@@ -90,10 +90,10 @@ npx jest --watchAll
 
 This command will run all tests. Then it waits for changes. As soon as changes are made, the tests will automatically run (without further user interaction!).
 
-TODO Add gif showing how this looks like in practice.
+![jest-watch-usage-example-cli](images/cli-javascript-jest.gif)
 
 ### Within VS Code
 
 The previously mentioned `Jest` plugin will automatically detect test changes and run tests in the background.
 
-TODO Add gif showing how this looks like in practice.
+![jest-watch-usage-example-vscode](images/vscode-javascript-jest-integration.gif)
