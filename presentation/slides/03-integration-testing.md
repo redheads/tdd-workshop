@@ -107,3 +107,11 @@ mailer.Received().Send(); // <--
 ---
 
 examples in code
+
+---
+
+## Golden master
+
+- use actual program behaviour as reference
+- useful when working with legacy code you don't understand
+- compares final ouptut with previously "recorded" output (record analogy)

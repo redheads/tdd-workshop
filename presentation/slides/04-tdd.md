@@ -49,6 +49,16 @@ Let's use **testing** to **DRIVE** our **development**!
 
 ---
 
+## TDD patterns
+
+- isolated tests
+- Test List (on paper, not in code -> small steps)
+- Test first -> less "stress"
+- Assert first
+- use Test data (vs realistic data)
+
+---
+
 ## red bar patterns
 
 Patterns decribing
@@ -59,7 +69,43 @@ Patterns decribing
 
 ---
 
-TODO
+## red bar patterns
+
+- Starter test
+- Explaining test
+- Regression test
+- One step test
+
+---
+
+### Starter test
+
+- Output equals input
+- input as small as possible
+
+---
+
+### Explaining test
+
+- Test should explain what is happening
+
+---
+
+### Regression test
+
+- small test reproducing error
+- why wasn't the test there before?
+- Redesign?
+
+---
+
+### One step test
+
+- Categorize tasks by difficulty
+  - Obvious
+  - no idea
+  - WAT?
+  - **this I can do**
 
 ---
 
@@ -67,9 +113,42 @@ TODO
 
 Patterns describing how to go from red to green
 
-- "fake it til you make it"
-- triangulation
 - obvious implementation
+- triangulation
+- "fake it til you make it"
+
+---
+
+### Obvious implementation
+
+- simple enough -> just implement it (driving in 2nd gear)
+- BUT: if you encounter surprising red bars -> take smaller steps ("be prepared to downshift")
+
+---
+
+### Triangulation
+
+- Abstract only if you have 2 or more examples
+- Use when you are really unsure about correct abstraction.
+- Prefer "fake it til you make it" or "Obvious Implementation"
+
+---
+
+### fake it til you make it
+
+- return a constant and gradually replace constants with variables until you have the real code
+- Why would you do something that you know you have to rip out?
+  - having something running is better than not having something running
+  - psychological: green bar -> convidence to refactor
+  - scope control: ignore potential future problem -> focus in simple problem -> repeat
+
+---
+
+### Transformation Priority Premise
+
+- ...gradually replace constants with variables...
+- taken one step further
+- [Example using Transformation Priority Premise](https://codurance.com/2015/05/18/applying-transformation-priority-premise-to-roman-numerals-kata/)
 
 ---
 
